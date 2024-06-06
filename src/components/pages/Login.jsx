@@ -1,7 +1,7 @@
 import axios from "axios"
 import { API_URL } from "../../constants/env"
-import { setToken, token } from "../../helpers/auth"
-import { Navigate, useNavigate } from "react-router-dom"
+import { setToken } from "../../helpers/auth"
+import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { LoginTemplate } from "../templates/LoginTemplate"
 
@@ -30,7 +30,15 @@ export const Login = () => {
   }
 
   return (
-    <LoginTemplate >
+    <LoginTemplate 
+      title="Iniciar Sesión"
+      data_link={{
+        button_text: 'Ingresar',
+        text_link: 'If you don`t have an account..',
+        link: '/register',
+        name_link: 'Registrate',
+      }}
+    >
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input className="p-2 mt-8 rounded-xl border" type="email" name="email" placeholder="Correo electrónico" required/>
         <div className="relative">
@@ -40,8 +48,14 @@ export const Login = () => {
                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
             </svg>
         </div>
-        {error && <p>{error.response.data.data}</p>}
+        {error && (
+          <p className="text-center p-2 bg-red-100 text-red-800">
+            {error?.response?.data.data}
+          </p>
+        )}
         <button className="bg-[#219ebc] rounded-xl text-white py-2 hover:scale-110 duration-300" type="submit">Ingresar</button>
+
+        <p className="mt-5 text-xs border-b border-gray-400 py-4">Forgot your password</p>
       </form>
     </LoginTemplate>
   )

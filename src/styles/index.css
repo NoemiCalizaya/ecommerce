@@ -10,3 +10,21 @@
 .menu-item {
     @apply py-5 px-4 hover:text-sky-100;
 }
+
+.padding-input {
+    @apply w-full px-2 py-2;
+}
+
+.style-button {
+    @apply px-2 py-2 rounded text-white;
+    background: rgb(9,116,121);
+}
+
+.style-button:hover {
+    background: rgba(12,155,167);
+}
+
+.product-card {
+    @apply px-2 py-2 rounded w-3/12 min-w-96 bg-slate-200;
+    overflow-y: scroll;
+}
