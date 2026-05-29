@@ -9,9 +9,10 @@ export const useFetch = (endpoint, headers={}) => {
 
     useEffect(() => {
         axios
-            .get(`${API_URL}/${endpoint}`)
+            .get(`https://dummyjson.com/${endpoint}`)
             .then(res => {
-                setData(res.data.data)
+                console.log(res.data)
+                setData(res.data)
             })
             .catch(err => {
                 setError(err)

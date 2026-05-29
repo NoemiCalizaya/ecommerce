@@ -1,0 +1,16 @@
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-info {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  transition: .3s;
+}
+
+.product-card:hover .product-info {
+  bottom: 0;
+}
